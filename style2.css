@@ -1,0 +1,331 @@
+/* ========================================================
+   VARIABLES
+   ======================================================== */
+
+:root {
+    --primary-color: #04AA6D;
+    --secondary-color: #70e000;
+    --text-light: white;
+    --text-dark: black;
+    --dark-bg: black;
+    --danger-color: red;
+}
+
+/* ========================================================
+   BASE STYLES
+   ======================================================== */
+
+body {
+    margin: 0;
+    font-size: 1.15rem;
+    font-family: Verdana, Arial, sans-serif;
+    line-height: 1.4;
+}
+
+main section h2 {
+    color: rgb(13, 88, 32);
+    font-family: Georgia, Arial, sans-serif;
+    margin-top: 20px;
+}
+
+main section h3 {
+    color: rgb(13, 88, 32);
+    font-family: Georgia, Arial, sans-serif;
+    margin-top: 15px;
+}
+
+
+/* ========================================================
+   LAYOUT STYLES
+   ======================================================== */
+
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+nav {
+    a {
+        font-size: 2rem;
+        color: var(--text-light);
+        text-decoration: none;
+        padding: 14px 16px;
+
+        &:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+        }
+    }
+}
+
+nav {
+    background-color: var(--dark-bg);
+    color: white;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+
+/* ========================================================
+   MAIN (CENTERED CONTENT)
+   ======================================================== */
+
+.home-page main,
+.cards-page main {
+    max-width: 45rem;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.home-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.cards-page {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+header,
+footer {
+    width: 100%;
+}
+
+
+/* ========================================================
+   FORM STYLES
+   ======================================================== */
+
+form {
+    border-radius: 5px;
+    background-color: #c8e6c9;
+    padding: 20px;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+input[type="email"]:focus,
+select:focus,
+input[type="date"]:focus {
+    outline: 2px solid #04AA6D;
+    outline-offset: 2px;
+}
+
+input[type="submit"] {
+    font-size: large;
+    font-family: Verdana, Arial, sans-serif;
+
+    margin-top: 20px;
+    width: 25%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #70e000;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+
+    cursor: pointer;
+
+}
+
+input[type="reset"] {
+    font-size: large;
+    font-family: Verdana, Arial, sans-serif;
+
+    margin-top: 20px;
+    width: 25%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--danger-color);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+}
+
+textarea {
+    resize: none;
+    font-family: Arial;
+}
+
+/* ========================================================
+   PAGE-SPECIFIC STYLES
+   ======================================================== */
+
+.jump-to {
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.jump-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.jump-links a {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+#featured-frog {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#featured-frog h2 {
+    color: var(--primary-color);
+    font-family: Georgia, Arial, sans-serif;
+}
+
+.card.featured {
+    max-width: 400px;
+    margin: 0 auto;
+    border: 2px solid var(--secondary-color);
+}
+
+
+/* ========================================================
+   TABLE STYLES
+   ======================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #e8f5e9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: #04aa6d;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #c8e6c9;
+    color: #1b4332;
+}
+
+tr:hover {
+    background: #d0f5d8;
+    transition: 0.2s;
+}
+
+tr:nth-child(even) {
+    background: #f1fbf3;
+}
+
+/* ========================================================
+    EMAIL BUTTON STYLES
+   ======================================================== */
+
+.frog-btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+    margin: 5px;
+}
+
+.frog-btn:hover {
+    background: var(--secondary-color);
+    color: var(--text-dark);
+}
+
+
+/* ========================================================
+   AUDIO PLAYER STYLES
+   ======================================================== */
+
+.audio-player {
+    background-color: #c8e6c9;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.audio-player audio {
+    width: 100%;
+    max-width: 500px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #9fe870;
+    color: var(--text-dark);
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+}
