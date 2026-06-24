@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact the Frog Registry to report frog sightings, pond news, or send a message." />
 
     <link rel="stylesheet" href="style2.css">
     <link rel="icon" href="image/icon.png" type="image/png">
@@ -23,137 +24,121 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <main>
-        <h2>Contact the Frog Registry</h2>
-        <p>Have a frog sighting, frog review, or important pond news? Let us know!</p>
-    
-    <form action="https://gibm.becknet.ch/formular/formular.php" method="POST">
-        <div>
-            <label>Frog Title *</label><br>
-            <input type="radio" name="title" value="Princess" required id="Princess">
-            <label for="Princess">Princess</label>
-        
-            <input type="radio" name="title" value="Prince" id="Prince">
-            <label for="Prince">Prince</label>
-        
-            <input type="radio" name="title" value="Supreme Frog" id="SupremeFrog">
-            <label for="SupremeFrog">Supreme Frog</label>
-        </div><br>
+    <div class="content-wrapper">
 
-        <div>
-            <label for="frogname">Frog Name *</label><br>
-            <input type="text"
-            id="frogname"
-            name="frogname"
-            minlength="2"
-            maxlength="100"
-            placeholder="Your frog name..."
-            autofocus
-            required>
-        </div>
+        <main>
+            <h2>Contact the Frog Registry</h2>
+            <p>Have a frog sighting, frog review, or important pond news? Let us know!</p>
 
-        <div>
-            <label for="pondname">Pond Family Name *</label><br>
-            <input type="text"
-            id="pondname"
-            name="pondname"
-            minlength="2"
-            maxlength="100"
-            placeholder="Your pond family name..."
-            required>
-        </div>
-        
+            <form action="https://gibm.becknet.ch/formular/formular.php" method="POST">
+                <div>
+                    <label>Frog Title *</label><br>
+                    <input type="radio" name="title" value="Princess" required id="Princess">
+                    <label for="Princess">Princess</label>
 
-        <div>
-            <label for="frogid">Frog Registry ID:</label><br>
-            <input type="text"
-            id="frogid"
-            name="frogid"
-            pattern="[A-Z]{3}[0-9]{5}"
-            placeholder="FRG12345">
-        </div>
-        <div>
-            <label for="pin">Secret Croak Code:</label>
-            <input type="text"
-            id="pin"
-            name="pin"
-            minlength="4"
-            maxlength="4"
-            placeholder="Your Secret Croak Code...">
-        </div>
+                    <input type="radio" name="title" value="Prince" id="Prince">
+                    <label for="Prince">Prince</label>
 
-        <div>
-            <label for="habitat">Habitat:</label>
-            <input type="text" id="habitat" name="habitat" value="Deep Misty Swamp" readonly>
-        </div>
-        
-        <div>
-            <label for="country">Country:</label>
-            <select id="country" name="country">
-                <optgroup label="Europe">
-                    <option value="de">Germany</option>
-                    <option value="ch">Switzerland</option>
-                    <option value="at">Austria</option>
-                </optgroup>
-                <optgroup label="North America">
-                    <option value="us">USA</option>
-                    <option value="ca">Canada</option>
-                </optgroup>
-            </select>
-            <br><br>
-        </div>
+                    <input type="radio" name="title" value="Supreme Frog" id="SupremeFrog">
+                    <label for="SupremeFrog">Supreme Frog</label>
+                </div><br>
 
-        <div>
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" rows="5" placeholder="Your message..."></textarea>
-        </div>
+                <div>
+                    <label for="frogname">Frog Name *</label><br>
+                    <input type="text" id="frogname" name="frogname" minlength="2" maxlength="100"
+                        placeholder="Your frog name..." autofocus required>
+                </div>
 
-        <div>
-            <label for="email">Email *</label><br>
-            <input type="email" id="email" name="email" placeholder="Your email address..." required>
-        </div>
+                <div>
+                    <label for="pondname">Pond Family Name *</label><br>
+                    <input type="text" id="pondname" name="pondname" minlength="2" maxlength="100"
+                        placeholder="Your pond family name..." required>
+                </div>
 
-        <div>
-            <p> Who shares your pond?</p>
-            <input type="checkbox" id="dragonfly" name="dragonfly" value="dragonfly">
-            <label for="dragonfly">Dragonflies</label><br>
-            <input type="checkbox" id="turtle" name="turtle" value="turtle">
-            <label for="turtle">Turtles</label><br>
-            <input type="checkbox" id="fish" name="fish" value="fish">
-            <label for="fish">Fishes</label><br>
-            <input type="checkbox" id="duck" name="duck" value="duck">
-            <label for="duck">Ducks</label><br>
-        </div>
-        <br>
 
-        <div>
-            <label for="metamorphosis">Date of Metamorphosis:</label>
-            <input type="date" id="metamorphosis" name="metamorphosis">
-        </div>
+                <div>
+                    <label for="frogid">Frog Registry ID:</label><br>
+                    <input type="text" id="frogid" name="frogid" pattern="[A-Z]{3}[0-9]{5}" placeholder="FRG12345">
+                </div>
+                <div>
+                    <label for="pin">Secret Croak Code:</label>
+                    <input type="text" id="pin" name="pin" minlength="4" maxlength="4"
+                        placeholder="Your Secret Croak Code...">
+                </div>
 
-        <div>
-            <label for="flies">Flies Eaten Today:</label>
-            <input type="number" id="flies" name="flies" min="0" max="1000" placeholder="Number of flies eaten today">
-        </div>
+                <div>
+                    <label for="habitat">Habitat:</label>
+                    <input type="text" id="habitat" name="habitat" value="Deep Misty Swamp" readonly>
+                </div>
 
-        <br>
-        <div>
-            <input type="submit" value="Send Croak">
-            <input type="reset" value="Jump back ⭯">
-        </div>
-    </form>
-    
-    <div>
-<p>
-    🐸 If preferred, email us directly on: 
-    <a href="mailto:pond@frogregistry.com" class="frog-btn">
-        pond@frogregistry.com
-    </a>
-</p>
+                <div>
+                    <label for="country">Country:</label>
+                    <select id="country" name="country">
+                        <optgroup label="Europe">
+                            <option value="de">Germany</option>
+                            <option value="ch">Switzerland</option>
+                            <option value="at">Austria</option>
+                        </optgroup>
+                        <optgroup label="North America">
+                            <option value="us">USA</option>
+                            <option value="ca">Canada</option>
+                        </optgroup>
+                    </select>
+                    <br><br>
+                </div>
 
+                <div>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="5" placeholder="Your message..."></textarea>
+                </div>
+
+                <div>
+                    <label for="email">Email *</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your email address..." required>
+                </div>
+
+                <div>
+                    <p> Who shares your pond?</p>
+                    <input type="checkbox" id="dragonfly" name="dragonfly" value="dragonfly">
+                    <label for="dragonfly">Dragonflies</label><br>
+                    <input type="checkbox" id="turtle" name="turtle" value="turtle">
+                    <label for="turtle">Turtles</label><br>
+                    <input type="checkbox" id="fish" name="fish" value="fish">
+                    <label for="fish">Fishes</label><br>
+                    <input type="checkbox" id="duck" name="duck" value="duck">
+                    <label for="duck">Ducks</label><br>
+                </div>
+                <br>
+
+                <div>
+                    <label for="metamorphosis">Date of Metamorphosis:</label>
+                    <input type="date" id="metamorphosis" name="metamorphosis">
+                </div>
+
+                <div>
+                    <label for="flies">Flies Eaten Today:</label>
+                    <input type="number" id="flies" name="flies" min="0" max="1000"
+                        placeholder="Number of flies eaten today">
+                </div>
+
+                <br>
+                <div>
+                    <input type="submit" value="Send Croak">
+                    <input type="reset" value="Jump back ⭯">
+                </div>
+            </form>
+
+            <div>
+                <p>
+                    🐸 If preferred, email us directly on:
+                    <a href="mailto:pond@frogregistry.com" class="frog-btn">
+                        pond@frogregistry.com
+                    </a>
+                </p>
+
+            </div>
+        </main>
     </div>
-    </main>
-
     <br>
     <footer>
         <p>&copy; 2026 Ynna Pauline Bautista. All rights reserved.</p>
