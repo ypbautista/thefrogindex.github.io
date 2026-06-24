@@ -11,47 +11,98 @@
     --danger-color: red;
 }
 
+
 /* ========================================================
-   BASE STYLES
+   RESET & BASE TYPOGRAPHY
    ======================================================== */
 
+html,
 body {
     margin: 0;
+    padding: 0;
+}
+
+/* MOBILE FIRST */
+
+body {
     font-size: 1.15rem;
     font-family: Verdana, Arial, sans-serif;
     line-height: 1.4;
-}
 
-main section h2 {
-    color: rgb(13, 88, 32);
-    font-family: Georgia, Arial, sans-serif;
-    margin-top: 20px;
-}
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "nav"
+        "hero"
+        "content"
+        "footer";
 
-main section h3 {
-    color: rgb(13, 88, 32);
-    font-family: Georgia, Arial, sans-serif;
-    margin-top: 15px;
+    row-gap: 20px;
 }
-
 
 /* ========================================================
-   LAYOUT STYLES
+   PAGE LAYOUT
    ======================================================== */
-
 header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+}
+
+footer {
+    grid-area: footer;
+}
+
+.hero {
+    grid-area: hero;
+    height: 60vh;
+    margin-top: -20px;
+}
+
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-wrapper {
+    grid-area: content;
+
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* FIX: if there is only main (no aside), keep it centered */
+.content-wrapper:has(main:only-child) {
+    grid-template-columns: 1fr;
+}
+
+/* ========================================================
+   SITE HEADER & FOOTER
+   ======================================================== */
+header,
+footer {
     background-color: var(--primary-color);
     color: var(--text-light);
     text-align: center;
     padding: 10px;
-    width: 100%;
 }
 
 .site-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 15px;
+    padding-left: 20px;
 }
 
 .logo {
@@ -59,9 +110,30 @@ header {
     height: auto;
 }
 
+
+/* ========================================================
+   NAVIGATION
+   ======================================================== */
+
+nav {
+    background-color: var(--dark-bg);
+    color: white;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+nav a {
+    display: block;
+    text-align: center;
+    padding: 12px;
+}
+
 nav {
     a {
-        font-size: 2rem;
+        font-size: clamp(1.1rem, 2vw, 2rem);
         color: var(--text-light);
         text-decoration: none;
         padding: 14px 16px;
@@ -73,38 +145,13 @@ nav {
     }
 }
 
-nav {
-    background-color: var(--dark-bg);
-    color: white;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-footer {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-}
-
 
 /* ========================================================
-   MAIN (CENTERED CONTENT)
+   MAIN CONTENT
    ======================================================== */
 
-.home-page main,
-.cards-page main {
-    max-width: 45rem;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.home-page {
-    min-height: 100vh;
+.home-page,
+.cards-page {
     overflow-x: hidden;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -112,17 +159,61 @@ footer {
 
 .cards-page {
     margin: 0;
-    min-height: 100vh;
-    overflow-x: hidden;
-    word-break: break-word;
-    overflow-wrap: break-word;
 }
 
-header,
-footer {
-    width: 100%;
+
+.home-page main {
+    max-width: 45rem;
+    margin: 0 auto;
+    padding: 20px;
 }
 
+
+
+.cards-page main {
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+}
+
+main section h2,
+main section h3 {
+    color: rgb(13, 88, 32);
+    font-family: Georgia, Arial, sans-serif;
+}
+
+main section h2 {
+    margin-top: 20px;
+}
+
+main section h3 {
+    margin-top: 15px;
+}
+
+/* ========================================================
+   SIDEBAR
+   ======================================================== */
+
+
+aside {
+    background-color: #e8f5e9;
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 20px;
+
+    position: sticky;
+    top: 20px;
+}
+
+aside h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-family: Georgia, Arial, sans-serif;
+}
+
+aside p {
+    color: #1b4332;
+}
 
 /* ========================================================
    FORM STYLES
@@ -143,43 +234,26 @@ input[type="date"]:focus {
     outline-offset: 2px;
 }
 
-input[type="submit"] {
-    font-size: large;
-    font-family: Verdana, Arial, sans-serif;
-
+input[type="submit"],
+input[type="reset"] {
+    font: inherit;
     margin-top: 20px;
     width: 25%;
     padding: 12px;
-
-    border: none;
+    border: 0;
     border-radius: 10px;
-
-    background: #70e000;
-    color: black;
     font-weight: bold;
-    text-align: center;
-
     cursor: pointer;
+}
 
+input[type="submit"] {
+    background: var(--secondary-color);
+    color: var(--text-dark);
 }
 
 input[type="reset"] {
-    font-size: large;
-    font-family: Verdana, Arial, sans-serif;
-
-    margin-top: 20px;
-    width: 25%;
-    padding: 12px;
-
-    border: none;
-    border-radius: 10px;
-
     background: var(--danger-color);
-    color: white;
-    font-weight: bold;
-    text-align: center;
-
-    cursor: pointer;
+    color: var(--text-light);
 }
 
 input[type="text"],
@@ -201,8 +275,46 @@ textarea {
     font-family: Arial;
 }
 
+
 /* ========================================================
-   PAGE-SPECIFIC STYLES
+   TABLE STYLES
+   ======================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #e8f5e9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: #04aa6d;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #c8e6c9;
+    color: #1b4332;
+}
+
+tr:hover {
+    background: #d0f5d8;
+    transition: 0.2s;
+}
+
+tr:nth-child(even) {
+    background: #f1fbf3;
+}
+
+
+/* ========================================================
+   PAGE-SPECIFIC COMPONENTS
    ======================================================== */
 
 .jump-to {
@@ -245,43 +357,7 @@ textarea {
 
 
 /* ========================================================
-   TABLE STYLES
-   ======================================================== */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: #e8f5e9;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-th {
-    background: #04aa6d;
-    color: white;
-    padding: 12px;
-    text-align: left;
-    font-size: 1.1rem;
-}
-
-td {
-    padding: 12px;
-    border-bottom: 1px solid #c8e6c9;
-    color: #1b4332;
-}
-
-tr:hover {
-    background: #d0f5d8;
-    transition: 0.2s;
-}
-
-tr:nth-child(even) {
-    background: #f1fbf3;
-}
-
-/* ========================================================
-    EMAIL BUTTON STYLES
+    BUTTON COMPONENTS
    ======================================================== */
 
 .frog-btn {
@@ -301,9 +377,33 @@ tr:nth-child(even) {
     color: var(--text-dark);
 }
 
+/* ========================================================
+   UTILITY COMPONENTS
+   ======================================================== */
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #9fe870;
+    color: var(--text-dark);
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 
 /* ========================================================
-   AUDIO PLAYER STYLES
+   MEDIA COMPONENTS
    ======================================================== */
 
 .audio-player {
@@ -319,13 +419,69 @@ tr:nth-child(even) {
     max-width: 500px;
 }
 
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #9fe870;
-    color: var(--text-dark);
-    padding: 10px 15px;
-    border-radius: 10px;
-    text-decoration: none;
+iframe {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border: 0;
+}
+
+
+/* ========================================================
+   RESPONSIVE LAYOUT
+   ======================================================== */
+
+
+@media (min-width: 900px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header nav"
+            "hero hero"
+            "content content"
+            "footer footer";
+    }
+
+    .content-wrapper {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 20px;
+
+        align-items: start;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    nav a {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        /* vertical centering */
+        justify-content: center;
+        padding: 14px 0px;
+    }
+}
+
+
+
+/* LARGE SCREENS */
+@media (min-width: 1800px) {
+    body {
+        font-size: 1.25rem;
+    }
+
+    .content-wrapper {
+        max-width: 1400px;
+    }
 }
